@@ -14,6 +14,16 @@ const findWalker = (pet, walkers) => {
     for (const walker of walkers) {
         if (walker.id === pet.walkerId) {
             petWalker = walker
+            for (const walkerCity of walkerCities) {
+                if (petWalker.id === walkerCity.walkerId) {
+                    petWalker.cityId = walkerCity.cityId
+                }
+            }
+            for (const city of cities) {
+                if (petWalker.cityId === city.id) {
+                    petWalker.city = city.name
+                }
+            }
         }
     }
 
